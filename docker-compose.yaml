@@ -20,7 +20,7 @@ services:
             - ./backend/.env
         build:
             context: ./backend
-        image: SD_test_backend_image
+        image: sd_test_backend_image
         container_name: SD_test_backend
         volumes: 
             - "/etc/timezone:/etc/timezone:ro"
@@ -28,11 +28,9 @@ services:
             - static-content:/files
     frontend:
         network_mode: "host"
-        env_file:
-            - ./frontend/.env
         build:
             context: ./frontend
-        container_name: SD_test_frontend
+        container_name: sd_test_frontend
         volumes: 
             - "/etc/timezone:/etc/timezone:ro"
             - "/etc/localtime:/etc/localtime:ro"

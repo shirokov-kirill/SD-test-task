@@ -22,13 +22,13 @@ function App(){
       email: item.email
     }})
         .then(res =>{
-            setItems(items.push(res.data.item))
+            setItems(items.concat(res.data))
         })
   }
 
   useEffect(() => {
     axios.get('http://127.0.0.1:8080/items')
-    .then(res => setItems(res.data.items))
+    .then(res => setItems(res.data))
   }, [])
 
     return (

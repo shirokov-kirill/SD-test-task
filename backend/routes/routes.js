@@ -12,23 +12,27 @@ module.exports = function(app) {
             email: req.body.item.email,
             cost: req.body.item.cost
         }
-        res.set({
-            'Access-Control-Allow-Origin': 'http://localhost:3000'
-        })
         Items.create(new_item, (err, items) => {
-            console.log(err);
-            res.send([]);
-            return
-        });
-        res.send([new_item])
+            console.log(err)
+            res.set({
+                'Access-Control-Allow-Origin': 'http://localhost:3000'
+            })
+            res.send([])
+        }).then(doc => {
+            res.set({
+                'Access-Control-Allow-Origin': 'http://localhost:3000'
+            })
+            res.send([new_item])
+        })
     });
 
     app.get('/items', async (req, res, next) => {
         console.log("OK")
-        res.set({
-            'Access-Control-Allow-Origin': 'http://localhost:3000'
+        Items.find({}).then(doc => {
+            res.set({
+                'Access-Control-Allow-Origin': 'http://localhost:3000'
+            })
+            res.send(doc)
         })
-        Items.find({}).then(doc => {res.send(doc); return})
-        res.send([])
     });
 };
