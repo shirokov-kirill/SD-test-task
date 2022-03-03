@@ -1,0 +1,13 @@
+.list-container {
+    margin-top: 40px;
+    margin-bottom: 25px;
+}
+
+.list-item {
+    background-color: #9575CD;
+    color: floralwhite;
+    padding: 10px;
+    border: black;
+    border-radius: 8px;
+    margin-bottom: 6px;
+}
